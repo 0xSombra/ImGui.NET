@@ -42,6 +42,7 @@ namespace CodeGenerator
             { "ImGuiMemAllocFunc", "IntPtr" },
             { "ImGuiMemFreeFunc", "IntPtr" },
             { "ImFontBuilderIO", "IntPtr" },
+            { "ImGuiDockNode", "IntPtr" },
             { "float[2]", "Vector2*" },
             { "float[3]", "Vector3*" },
             { "float[4]", "Vector4*" },

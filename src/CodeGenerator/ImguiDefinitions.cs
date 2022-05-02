@@ -14,6 +14,48 @@ namespace CodeGenerator
         public TypeDefinition[] Types;
         public FunctionDefinition[] Functions;
         public Dictionary<string, MethodVariant> Variants;
+        HashSet<string> _allowedInternalEnums = new HashSet<string>();
+        HashSet<string> _allowedInternalStructs = new HashSet<string>();
+        HashSet<string> _allowedInternalFuncs = new HashSet<string>()
+        {
+            "igGetHoveredID",
+            "igSetHoveredID",
+            "igGetItemID",
+
+            /* ======== Docking ======== */
+            "igDockBuilderAddNode",
+            "igDockBuilderCopyDockSpace",
+            "igDockBuilderCopyNode",
+            "igDockBuilderCopyWindowSettings",
+            "igDockBuilderDockWindow",
+            "igDockBuilderFinish",
+            "igDockBuilderGetCentralNode",
+            "igDockBuilderGetNode",
+            "igDockBuilderRemoveNode",
+            "igDockBuilderRemoveNodeChildNodes",
+            "igDockBuilderRemoveNodeDockedWindows",
+            "igDockBuilderSetNodePos",
+            "igDockBuilderSetNodeSize",
+            "igDockBuilderSplitNode",
+            //"igDockContextCalcDropPosForDocking",
+            "igDockContextClearNodes",
+            "igDockContextGenNodeID",
+            "igDockContextInitialize",
+            "igDockContextNewFrameUpdateDocking",
+            "igDockContextNewFrameUpdateUndocking",
+            //"igDockContextQueueDock",
+            "igDockContextQueueUndockNode",
+            //"igDockContextQueueUndockWindow",
+            "igDockContextRebuildNodes",
+            "igDockContextShutdown",
+            "igDockNodeBeginAmendTabBar",
+            "igDockNodeEndAmendTabBar",
+            "igDockNodeGetDepth",
+            "igDockNodeGetRootNode",
+            "igDockNodeGetWindowMenuButtonId",
+            /* ========================= */
+
+        };
 
         static int GetInt(JToken token, string key)
         {
@@ -65,7 +107,9 @@ namespace CodeGenerator
             {
                 JProperty jp = (JProperty)jt;
                 string name = jp.Name;
-                if (typeLocations?[jp.Name]?.Value<string>().Contains("internal") ?? false) {
+                if ((typeLocations?[jp.Name]?.Value<string>().Contains("internal") ?? false) &&
+                    !_allowedInternalEnums.Contains(name))
+                {
                     return null;
                 }
                 EnumMember[] elements = jp.Values().Select(v =>
@@ -79,7 +123,9 @@ namespace CodeGenerator
             {
                 JProperty jp = (JProperty)jt;
                 string name = jp.Name;
-                if (typeLocations?[jp.Name]?.Value<string>().Contains("internal") ?? false) {
+                if ((typeLocations?[jp.Name]?.Value<string>().Contains("internal") ?? false) &&
+                    !_allowedInternalStructs.Contains(name))
+                {
                     return null;
                 }
                 TypeReference[] fields = jp.Values().Select(v =>
@@ -120,7 +166,11 @@ namespace CodeGenerator
                         }
                     }
                     if (friendlyName == null) { return null; }
-                    if (val["location"]?.ToString().Contains("internal") ?? false) return null;
+                    if ((val["location"]?.ToString().Contains("internal") ?? false) &&
+                        !_allowedInternalFuncs.Contains(name))
+                    {
+                        return null;
+                    }
 
                     string exportedName = ov_cimguiname;
                     if (exportedName == null)
