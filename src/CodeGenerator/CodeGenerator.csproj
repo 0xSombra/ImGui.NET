@@ -6,21 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="definitions\cimguizmo\**" />
+    <Compile Remove="definitions\cimnodes\**" />
+    <Compile Remove="definitions\cimplot\**" />
+    <EmbeddedResource Remove="definitions\cimguizmo\**" />
+    <EmbeddedResource Remove="definitions\cimnodes\**" />
+    <EmbeddedResource Remove="definitions\cimplot\**" />
+    <None Remove="definitions\cimguizmo\**" />
+    <None Remove="definitions\cimnodes\**" />
+    <None Remove="definitions\cimplot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="definitions\cimgui\structs_and_enums.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="definitions\cimgui\definitions.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="definitions\cimgui\variants.json" CopyToOutputDirectory="PreserveNewest" />
-
-    <Content Include="definitions\cimplot\structs_and_enums.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="definitions\cimplot\definitions.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="definitions\cimplot\variants.json" CopyToOutputDirectory="PreserveNewest" />
-
-    <Content Include="definitions\cimnodes\structs_and_enums.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="definitions\cimnodes\definitions.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="definitions\cimnodes\variants.json" CopyToOutputDirectory="PreserveNewest" />
-
-    <Content Include="definitions\cimguizmo\structs_and_enums.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="definitions\cimguizmo\definitions.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="definitions\cimguizmo\variants.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
