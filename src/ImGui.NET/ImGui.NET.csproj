@@ -29,12 +29,6 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="build\net40\ImGui.NET.targets">
-      <PackagePath>build/net40/ImGui.NET.targets</PackagePath>
-      <Pack>true</Pack>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Generated\" />
   </ItemGroup>
 </Project>

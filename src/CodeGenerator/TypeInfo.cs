@@ -53,6 +53,8 @@ namespace CodeGenerator
             { "ImVec2[2]", "Vector2*" },
             { "char* []", "byte**" },
             { "unsigned char[256]", "byte*"},
+            { "ImPlotGetter", "IntPtr" },
+            { "ImPlotFormatter", "IntPtr" }
         };
         
         public static readonly List<string> WellKnownEnums = new List<string>()

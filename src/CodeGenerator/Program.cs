@@ -548,6 +548,8 @@ namespace CodeGenerator
                         correctedDefault = defaultVal;
                     }
                     marshalledParameters[i] = new MarshalledParameter(nativeTypeName, false, correctedIdentifier, true);
+                    if (nativeTypeName.Equals("ImPlotSubplotFlags"))
+                        ;
                     preCallLines.Add($"{nativeTypeName} {correctedIdentifier} = {correctedDefault};");
                 }
                 else if (tr.Type == "char* []")

@@ -6,15 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="definitions\cimguizmo\**" />
     <Compile Remove="definitions\cimnodes\**" />
-    <Compile Remove="definitions\cimplot\**" />
-    <EmbeddedResource Remove="definitions\cimguizmo\**" />
     <EmbeddedResource Remove="definitions\cimnodes\**" />
-    <EmbeddedResource Remove="definitions\cimplot\**" />
-    <None Remove="definitions\cimguizmo\**" />
     <None Remove="definitions\cimnodes\**" />
-    <None Remove="definitions\cimplot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,5 +19,10 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="definitions\cimplot\" />
+    <Folder Include="definitions\cimguizmo\" />
   </ItemGroup>
 </Project>

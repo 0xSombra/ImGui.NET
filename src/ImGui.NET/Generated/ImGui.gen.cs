@@ -1272,26 +1272,6 @@ namespace ImGuiNET
             float ret = ImGuiNative.igCalcItemWidth();
             return ret;
         }
-        public static void CaptureKeyboardFromApp()
-        {
-            byte want_capture_keyboard_value = 1;
-            ImGuiNative.igCaptureKeyboardFromApp(want_capture_keyboard_value);
-        }
-        public static void CaptureKeyboardFromApp(bool want_capture_keyboard_value)
-        {
-            byte native_want_capture_keyboard_value = want_capture_keyboard_value ? (byte)1 : (byte)0;
-            ImGuiNative.igCaptureKeyboardFromApp(native_want_capture_keyboard_value);
-        }
-        public static void CaptureMouseFromApp()
-        {
-            byte want_capture_mouse_value = 1;
-            ImGuiNative.igCaptureMouseFromApp(want_capture_mouse_value);
-        }
-        public static void CaptureMouseFromApp(bool want_capture_mouse_value)
-        {
-            byte native_want_capture_mouse_value = want_capture_mouse_value ? (byte)1 : (byte)0;
-            ImGuiNative.igCaptureMouseFromApp(native_want_capture_mouse_value);
-        }
         public static bool Checkbox(string label, ref bool v)
         {
             byte* native_label;
@@ -2227,6 +2207,32 @@ namespace ImGuiNET
                 Util.Free(native_version_str);
             }
             return ret != 0;
+        }
+        public static void DebugTextEncoding(string text)
+        {
+            byte* native_text;
+            int text_byteCount = 0;
+            if (text != null)
+            {
+                text_byteCount = Encoding.UTF8.GetByteCount(text);
+                if (text_byteCount > Util.StackAllocationSizeLimit)
+                {
+                    native_text = Util.Allocate(text_byteCount + 1);
+                }
+                else
+                {
+                    byte* native_text_stackBytes = stackalloc byte[text_byteCount + 1];
+                    native_text = native_text_stackBytes;
+                }
+                int native_text_offset = Util.GetUtf8(text, native_text, text_byteCount);
+                native_text[native_text_offset] = 0;
+            }
+            else { native_text = null; }
+            ImGuiNative.igDebugTextEncoding(native_text);
+            if (text_byteCount > Util.StackAllocationSizeLimit)
+            {
+                Util.Free(native_text);
+            }
         }
         public static void DestroyContext()
         {
@@ -11033,6 +11039,16 @@ namespace ImGuiNET
         public static void SetMouseCursor(ImGuiMouseCursor cursor_type)
         {
             ImGuiNative.igSetMouseCursor(cursor_type);
+        }
+        public static void SetNextFrameWantCaptureKeyboard(bool want_capture_keyboard)
+        {
+            byte native_want_capture_keyboard = want_capture_keyboard ? (byte)1 : (byte)0;
+            ImGuiNative.igSetNextFrameWantCaptureKeyboard(native_want_capture_keyboard);
+        }
+        public static void SetNextFrameWantCaptureMouse(bool want_capture_mouse)
+        {
+            byte native_want_capture_mouse = want_capture_mouse ? (byte)1 : (byte)0;
+            ImGuiNative.igSetNextFrameWantCaptureMouse(native_want_capture_mouse);
         }
         public static void SetNextItemOpen(bool is_open)
         {
