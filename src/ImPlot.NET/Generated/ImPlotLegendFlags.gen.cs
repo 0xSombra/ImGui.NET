@@ -10,5 +10,6 @@ namespace ImPlotNET
         NoMenus = 8,
         Outside = 16,
         Horizontal = 32,
+        Sort = 64,
     }
 }

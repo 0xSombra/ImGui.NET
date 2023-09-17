@@ -1,10 +1,9 @@
 namespace ImPlotNET
 {
     [System.Flags]
-    public enum ImPlotBarGroupsFlags
+    public enum ImPlotInfLinesFlags
     {
         None = 0,
         Horizontal = 1024,
-        Stacked = 2048,
     }
 }
