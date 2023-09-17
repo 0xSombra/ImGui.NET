@@ -22,6 +22,7 @@ namespace CodeGenerator
             "igGetHoveredID",
             "igSetHoveredID",
             "igGetItemID",
+            "igClearActiveID",
 
             /* ======== Docking ======== */
             "igDockContextInitialize",
