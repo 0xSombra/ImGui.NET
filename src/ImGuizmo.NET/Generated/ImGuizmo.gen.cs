@@ -64,6 +64,11 @@ namespace ImGuizmoNET
             byte native_enable = enable ? (byte)1 : (byte)0;
             ImGuizmoNative.ImGuizmo_Enable(native_enable);
         }
+        public static Style* GetStyle()
+        {
+            Style* ret = ImGuizmoNative.ImGuizmo_GetStyle();
+            return ret;
+        }
         public static bool IsOver()
         {
             byte ret = ImGuizmoNative.ImGuizmo_IsOver_Nil();
@@ -77,6 +82,11 @@ namespace ImGuizmoNET
         public static bool IsUsing()
         {
             byte ret = ImGuizmoNative.ImGuizmo_IsUsing();
+            return ret != 0;
+        }
+        public static bool IsUsingAny()
+        {
+            byte ret = ImGuizmoNative.ImGuizmo_IsUsingAny();
             return ret != 0;
         }
         public static bool Manipulate(ref float view, ref float projection, OPERATION operation, MODE mode, ref float matrix)
@@ -205,6 +215,10 @@ namespace ImGuizmoNET
                 }
             }
         }
+        public static void SetAxisLimit(float value)
+        {
+            ImGuizmoNative.ImGuizmo_SetAxisLimit(value);
+        }
         public static void SetDrawlist()
         {
             ImDrawList* drawlist = null;
@@ -231,6 +245,10 @@ namespace ImGuizmoNET
         {
             byte native_isOrthographic = isOrthographic ? (byte)1 : (byte)0;
             ImGuizmoNative.ImGuizmo_SetOrthographic(native_isOrthographic);
+        }
+        public static void SetPlaneLimit(float value)
+        {
+            ImGuizmoNative.ImGuizmo_SetPlaneLimit(value);
         }
         public static void SetRect(float x, float y, float width, float height)
         {
