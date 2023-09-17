@@ -1536,6 +1536,10 @@ namespace ImGuiNET
                 return ret != 0;
             }
         }
+        public static void ClearActiveID()
+        {
+            ImGuiNative.igClearActiveID();
+        }
         public static void CloseCurrentPopup()
         {
             ImGuiNative.igCloseCurrentPopup();
@@ -2687,6 +2691,15 @@ namespace ImGuiNET
             byte native_clear_settings_refs = clear_settings_refs ? (byte)1 : (byte)0;
             ImGuiNative.igDockContextClearNodes(ctx, root_id, native_clear_settings_refs);
         }
+        public static void DockContextEndFrame(IntPtr ctx)
+        {
+            ImGuiNative.igDockContextEndFrame(ctx);
+        }
+        public static IntPtr* DockContextFindNodeByID(IntPtr ctx, uint id)
+        {
+            IntPtr* ret = ImGuiNative.igDockContextFindNodeByID(ctx, id);
+            return ret;
+        }
         public static uint DockContextGenNodeID(IntPtr ctx)
         {
             uint ret = ImGuiNative.igDockContextGenNodeID(ctx);
@@ -2703,13 +2716,6 @@ namespace ImGuiNET
         public static void DockContextNewFrameUpdateUndocking(IntPtr ctx)
         {
             ImGuiNative.igDockContextNewFrameUpdateUndocking(ctx);
-        }
-        public static void DockContextQueueUndockNode(IntPtr ctx, ref IntPtr node)
-        {
-            fixed (IntPtr* native_node = &node)
-            {
-                ImGuiNative.igDockContextQueueUndockNode(ctx, native_node);
-            }
         }
         public static void DockContextRebuildNodes(IntPtr ctx)
         {
@@ -2753,6 +2759,17 @@ namespace ImGuiNET
             {
                 uint ret = ImGuiNative.igDockNodeGetWindowMenuButtonId(native_node);
                 return ret;
+            }
+        }
+        public static bool DockNodeIsInHierarchyOf(ref IntPtr node, ref IntPtr parent)
+        {
+            fixed (IntPtr* native_node = &node)
+            {
+                fixed (IntPtr* native_parent = &parent)
+                {
+                    byte ret = ImGuiNative.igDockNodeIsInHierarchyOf(native_node, native_parent);
+                    return ret != 0;
+                }
             }
         }
         public static uint DockSpace(uint id)
@@ -7381,6 +7398,11 @@ namespace ImGuiNET
         public static uint GetWindowDockID()
         {
             uint ret = ImGuiNative.igGetWindowDockID();
+            return ret;
+        }
+        public static IntPtr* GetWindowDockNode()
+        {
+            IntPtr* ret = ImGuiNative.igGetWindowDockNode();
             return ret;
         }
         public static float GetWindowDpiScale()
