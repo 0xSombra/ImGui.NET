@@ -159,7 +159,8 @@ namespace CodeGenerator
             "igInputText",
             "igInputTextMultiline",
             "igCalcTextSize",
-            "igInputTextWithHint"
+            "igInputTextWithHint",
+            "igInputScalar",
         };
     }
 }

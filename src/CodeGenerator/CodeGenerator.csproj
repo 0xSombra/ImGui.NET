@@ -25,4 +25,25 @@
     <Folder Include="definitions\cimplot\" />
     <Folder Include="definitions\cimguizmo\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="definitions\cimguizmo\definitions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="definitions\cimguizmo\structs_and_enums.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="definitions\cimguizmo\variants.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="definitions\cimplot\definitions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="definitions\cimplot\structs_and_enums.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="definitions\cimplot\variants.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
