@@ -8,277 +8,13 @@ namespace ImGuiNET
 {
     public static unsafe partial class ImGui
     {
-        public static bool InputScalar(string label, ref sbyte data, sbyte? step = null, sbyte? stepFast = null,
-            string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.S8, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref byte data, byte? step = null, byte? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.U8, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref int data, int? step = null, int? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.S32, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref uint data, uint? step = null, uint? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.U32, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref short data, short? step = null, short? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.S16, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref ushort data, ushort? step = null, ushort? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.U16, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref long data, long? step = null, long? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.S64, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref ulong data, ulong? step = null, ulong? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.U64, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref float data, float? step = null, float? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.Float, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool InputScalar(string label, ref double data, double? step = null, double? stepFast = null,
-                    string format = null, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
-        {
-            IntPtr dataPtr;
-            IntPtr stepPtr = IntPtr.Zero;
-            IntPtr stepFastPtr = IntPtr.Zero;
-
-            fixed (void* fixedData = &data)
-            {
-                dataPtr = new IntPtr(fixedData);
-            }
-
-            var stepValue = step.HasValue ? step.Value : default;
-            if (step.HasValue)
-            {
-                stepPtr = new IntPtr(&stepValue);
-            }
-
-            var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
-            if (stepFast.HasValue)
-            {
-                stepFastPtr = new IntPtr(&stepFastValue);
-            }
-
-            return InputScalar(label, ImGuiDataType.Double, dataPtr, stepPtr, stepFastPtr, format, flags);
-        }
-
-        public static bool BeginPopupModal(string name, ImGuiWindowFlags flags)
+        public static bool BeginPopupModal(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> name,
+#else
+            string name,
+#endif
+            ImGuiWindowFlags flags)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -303,6 +39,536 @@ namespace ImGuiNET
             if (name_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_name);
+            }
+            return ret != 0;
+        }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool Begin(ReadOnlySpan<char> name, ImGuiWindowFlags flags)
+#else
+        public static bool Begin(string name, ImGuiWindowFlags flags)
+#endif
+        {
+            int utf8NameByteCount = Encoding.UTF8.GetByteCount(name);
+            byte* utf8NameBytes;
+            if (utf8NameByteCount > Util.StackAllocationSizeLimit)
+            {
+                utf8NameBytes = Util.Allocate(utf8NameByteCount + 1);
+            }
+            else
+            {
+                byte* stackPtr = stackalloc byte[utf8NameByteCount + 1];
+                utf8NameBytes = stackPtr;
+            }
+            Util.GetUtf8(name, utf8NameBytes, utf8NameByteCount);
+
+            byte* p_open = null;
+            byte ret = ImGuiNative.igBegin(utf8NameBytes, p_open, flags);
+
+            if (utf8NameByteCount > Util.StackAllocationSizeLimit)
+            {
+                Util.Free(utf8NameBytes);
+            }
+
+            return ret != 0;
+        }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool MenuItem(ReadOnlySpan<char> label, bool enabled)
+#else
+        public static bool MenuItem(string label, bool enabled)
+#endif
+        {
+            return MenuItem(label, string.Empty, false, enabled);
+        }
+
+
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref sbyte data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            sbyte? step = null,
+            sbyte? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.S8, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref byte data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            byte? step = null,
+            byte? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.U8, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref short data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            short? step = null,
+            short? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.S16, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref ushort data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            ushort? step = null,
+            ushort? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.U16, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref int data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            int? step = null,
+            int? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.S32, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref uint data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            uint? step = null,
+            uint? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.U32, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref long data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            long? step = null,
+            long? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.S64, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref ulong data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            ulong? step = null,
+            ulong? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.U64, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref float data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            float? step = null,
+            float? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.Float, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+        public static bool InputScalar(
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> label,
+#else
+            string label,
+#endif
+            ref double data,
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            ReadOnlySpan<char> format = default,
+#else
+            string format = default,
+#endif
+            double? step = null,
+            double? stepFast = null,
+            ImGuiInputTextFlags flags = ImGuiInputTextFlags.None)
+        {
+            IntPtr dataPtr;
+            IntPtr stepPtr = IntPtr.Zero;
+            IntPtr stepFastPtr = IntPtr.Zero;
+
+            fixed (void* fixedData = &data)
+            {
+                dataPtr = new IntPtr(fixedData);
+
+                var stepValue = step ?? default;
+                if (step.HasValue)
+                {
+                    stepPtr = new IntPtr(&stepValue);
+                }
+
+                var stepFastValue = stepFast.HasValue ? stepFast.Value : default;
+                if (stepFast.HasValue)
+                {
+                    stepFastPtr = new IntPtr(&stepFastValue);
+                }
+
+                return InputScalar(label, ImGuiDataType.Double, dataPtr, stepPtr, stepFastPtr, format, flags);
+            }
+        }
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool InputScalar(ReadOnlySpan<char> label, ImGuiDataType data_type, IntPtr p_data)
+#else
+        public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, string format)
+#endif
+            => InputScalar(label, data_type, p_data, IntPtr.Zero, IntPtr.Zero, null, ImGuiInputTextFlags.None);
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool InputScalar(ReadOnlySpan<char> label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step)
+#else
+        public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, string format)
+#endif
+            => InputScalar(label, data_type, p_data, p_step, IntPtr.Zero, null, ImGuiInputTextFlags.None);
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool InputScalar(ReadOnlySpan<char> label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast)
+#else
+        public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, string format)
+#endif
+            => InputScalar(label, data_type, p_data, p_step, p_step_fast, null, ImGuiInputTextFlags.None);
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool InputScalar(ReadOnlySpan<char> label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, ReadOnlySpan<char> format)
+#else
+        public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, string format)
+#endif
+            => InputScalar(label, data_type, p_data, p_step, p_step_fast, format, ImGuiInputTextFlags.None);
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool InputScalar(ReadOnlySpan<char> label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, ReadOnlySpan<char> format, ImGuiInputTextFlags flags)
+#else
+        public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, string format, ImGuiInputTextFlags flags)
+#endif
+        {
+            byte* native_label;
+            int label_byteCount = 0;
+            if (label != null)
+            {
+                label_byteCount = Encoding.UTF8.GetByteCount(label);
+                if (label_byteCount > Util.StackAllocationSizeLimit)
+                {
+                    native_label = Util.Allocate(label_byteCount + 1);
+                }
+                else
+                {
+                    byte* native_label_stackBytes = stackalloc byte[label_byteCount + 1];
+                    native_label = native_label_stackBytes;
+                }
+                int native_label_offset = Util.GetUtf8(label, native_label, label_byteCount);
+                native_label[native_label_offset] = 0;
+            }
+            else { native_label = null; }
+            void* native_p_data = (void*)p_data.ToPointer();
+            void* native_p_step = (void*)p_step.ToPointer();
+            void* native_p_step_fast = (void*)p_step_fast.ToPointer();
+            byte* native_format;
+            int format_byteCount = 0;
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+            if (!format.IsEmpty)
+#else
+            if (!string.IsNullOrEmpty(format))
+#endif
+            {
+                format_byteCount = Encoding.UTF8.GetByteCount(format);
+                if (format_byteCount > Util.StackAllocationSizeLimit)
+                {
+                    native_format = Util.Allocate(format_byteCount + 1);
+                }
+                else
+                {
+                    byte* native_format_stackBytes = stackalloc byte[format_byteCount + 1];
+                    native_format = native_format_stackBytes;
+                }
+                int native_format_offset = Util.GetUtf8(format, native_format, format_byteCount);
+                native_format[native_format_offset] = 0;
+            }
+            else { native_format = null; }
+            byte ret = ImGuiNative.igInputScalar(native_label, data_type, native_p_data, native_p_step, native_p_step_fast, native_format, flags);
+            if (label_byteCount > Util.StackAllocationSizeLimit)
+            {
+                Util.Free(native_label);
+            }
+            if (format_byteCount > Util.StackAllocationSizeLimit)
+            {
+                Util.Free(native_format);
             }
             return ret != 0;
         }
@@ -906,45 +1172,6 @@ namespace ImGuiNET
             }
 
             return ret;
-        }
-
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool Begin(ReadOnlySpan<char> name, ImGuiWindowFlags flags)
-#else
-        public static bool Begin(string name, ImGuiWindowFlags flags)
-#endif
-        {
-            int utf8NameByteCount = Encoding.UTF8.GetByteCount(name);
-            byte* utf8NameBytes;
-            if (utf8NameByteCount > Util.StackAllocationSizeLimit)
-            {
-                utf8NameBytes = Util.Allocate(utf8NameByteCount + 1);
-            }
-            else
-            {
-                byte* stackPtr = stackalloc byte[utf8NameByteCount + 1];
-                utf8NameBytes = stackPtr;
-            }
-            Util.GetUtf8(name, utf8NameBytes, utf8NameByteCount);
-
-            byte* p_open = null;
-            byte ret = ImGuiNative.igBegin(utf8NameBytes, p_open, flags);
-
-            if (utf8NameByteCount > Util.StackAllocationSizeLimit)
-            {
-                Util.Free(utf8NameBytes);
-            }
-
-            return ret != 0;
-        }
-
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool MenuItem(ReadOnlySpan<char> label, bool enabled)
-#else
-        public static bool MenuItem(string label, bool enabled)
-#endif
-        {
-            return MenuItem(label, string.Empty, false, enabled);
         }
     }
 }

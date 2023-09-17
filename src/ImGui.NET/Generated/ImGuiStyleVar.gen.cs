@@ -27,6 +27,10 @@ namespace ImGuiNET
         TabRounding = 22,
         ButtonTextAlign = 23,
         SelectableTextAlign = 24,
-        COUNT = 25,
+        SeparatorTextBorderSize = 25,
+        SeparatorTextAlign = 26,
+        SeparatorTextPadding = 27,
+        DockingSeparatorSize = 28,
+        COUNT = 29,
     }
 }
